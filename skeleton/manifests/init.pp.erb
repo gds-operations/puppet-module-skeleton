@@ -12,8 +12,13 @@ class <%= metadata.name %> (
 
   # validate parameters here
 
+  anchor { '<%= metadata.name %>::begin': } ->
   class { '<%= metadata.name %>::install': } ->
-  class { '<%= metadata.name %>::config': } ~>
+  class { '<%= metadata.name %>::config': }
   class { '<%= metadata.name %>::service': } ->
-  Class['<%= metadata.name %>']
+  anchor { '<%= metadata.name %>::end': }
+
+  Anchor['<%= metadata.name %>::begin']  ~> Class['<%= metadata.name %>::service']
+  Class['<%= metadata.name %>::install'] ~> Class['<%= metadata.name %>::service']
+  Class['<%= metadata.name %>::config']  ~> Class['<%= metadata.name %>::service']
 }
