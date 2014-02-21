@@ -4,3 +4,4 @@ pkg
 spec/fixtures
 Gemfile.lock
 .rspec_system
+.vagrant
