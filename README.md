@@ -14,7 +14,7 @@ meant to be better templates for use with the puppet module tool.
 
 As we don't want to have our .git files and this README in our skeleton, we export it like this:
 
-    git clone https://github.com/gds-operations/puppet-module-skeleton 
+    git clone https://github.com/gds-operations/puppet-module-skeleton
     cd puppet-module-skeleton
     find skeleton -type f | git checkout-index --stdin --force --prefix="$HOME/.puppet/var/puppet-module/" --
 
@@ -53,9 +53,9 @@ Of particular interst should be:
 * `rake lint` - checks against the puppet style guide
 * `rake syntax` - to check your have valid puppet and erb syntax
 
-You can run the tests in real time while modifying the source code, just run the following command and the tests will run each time you have changed a file in the manifests folder:
+During development of your puppet module you might want to run your unit tests a couple of times. You can use the following command to automate running the unit tests on every change made in the manifests folder.
 
-	guard
+    bundle exec guard
 
 ## Thanks
 
