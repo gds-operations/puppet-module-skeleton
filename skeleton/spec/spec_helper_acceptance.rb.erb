@@ -1,4 +1,4 @@
-require 'beaker-rspec'
+require 'beaker-rspec/spec_helper'
 
 hosts.each do |host|
   install_package host, 'rubygems'
@@ -17,7 +17,7 @@ RSpec.configure do |c|
   # Configure all the nodes
   c.before :suite do
     # Install relevant Puppet module(s)
-    puppet_mdoule_install(:source => proj_root, :module_name => 'skeleton')
+    puppet_module_install(:source => proj_root, :module_name => '<%= metadata.name %>')
     hosts.each do |host|
       on host, puppet('module','install','puppetlabs-stdlib'), { :acceptable_exit_codes => [0,1] }
     end
