@@ -1,5 +1,4 @@
 require 'beaker-rspec'
-require 'pry'
 
 hosts.each do |host|
   install_package host, 'rubygems'
@@ -10,7 +9,7 @@ end
 RSpec.configure do |c|
 
   # Set project root directory
-  proj_root = File.expand_path(File.open(File.dirname(__FILE__), '..'))
+  proj_root = File.expand_path(File.join(File.dirname(__FILE__), '..'))
 
   # Enforce readable test descriptions
   c.formatter = :documentation
