@@ -23,7 +23,10 @@
 
 ## Testing ##
 
-Write tests using [rspec-puppet](http://rspec-puppet.com/).
+Write unit tests using [rspec-puppet][] and acceptance tests using [beaker][].
 
-Ensure that you run `rake test` so that the tests pass
+[rspec-puppet]: http://rspec-puppet.com/
+[beaker]: https://github.com/puppetlabs/beaker
+
+Ensure that you run tests to make sure that they pass
 before you raise your pull request.
