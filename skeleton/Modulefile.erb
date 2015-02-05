@@ -1,10 +1,10 @@
 name          '<%= metadata.full_module_name %>'
-version       '0.0.1'
+version       '0.1.0'
 source        '<%= metadata.source %>'
 author        '<%= metadata.author %>'
 license       'MIT'
 summary       '<%= metadata.summary %>'
-description   '<%= metadata.description %>'
+description   '<%= defined?(metadata.description) ? metadata.description : metadata.summary %>'
 project_page  '<%= metadata.project_page %>'
 
 dependency 'puppetlabs/stdlib', '>= 3.0.0'

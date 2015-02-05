@@ -8,17 +8,19 @@
 #   Explanation of what this parameter affects and what it defaults to.
 #
 class <%= metadata.name %> (
-) inherits <%= metadata.name %>::params {
+  $package_name = $::<%= metadata.name %>::params::package_name,
+  $service_name = $::<%= metadata.name %>::params::service_name,
+) inherits ::<%= metadata.name %>::params {
 
   # validate parameters here
 
-  anchor { '<%= metadata.name %>::begin': } ->
-  class { '<%= metadata.name %>::install': } ->
-  class { '<%= metadata.name %>::config': }
-  class { '<%= metadata.name %>::service': } ->
-  anchor { '<%= metadata.name %>::end': }
+  anchor { '::<%= metadata.name %>::begin': } ->
+  class { '::<%= metadata.name %>::install': } ->
+  class { '::<%= metadata.name %>::config': }
+  class { '::<%= metadata.name %>::service': } ->
+  anchor { '::<%= metadata.name %>::end': }
 
-  Anchor['<%= metadata.name %>::begin']  ~> Class['<%= metadata.name %>::service']
-  Class['<%= metadata.name %>::install'] ~> Class['<%= metadata.name %>::service']
-  Class['<%= metadata.name %>::config']  ~> Class['<%= metadata.name %>::service']
+  Anchor['::<%= metadata.name %>::begin']  ~> Class['::<%= metadata.name %>::service']
+  Class['::<%= metadata.name %>::install'] ~> Class['::<%= metadata.name %>::service']
+  Class['::<%= metadata.name %>::config']  ~> Class['::<%= metadata.name %>::service']
 }
