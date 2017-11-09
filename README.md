@@ -1,3 +1,11 @@
+## Deprecated
+
+This module is no longer used, or supported, and while there are a number
+of concepts and examples worth noting in the [skeleton](/skeleton/)
+directory we do not support its use.
+
+## Introduction
+
 Puppet modules often take on the same file system structure. The
 built-in puppet-module tool makes starting modules easy, but the built
 in skeleton module is very simple. This skeleton is very opinionated.
